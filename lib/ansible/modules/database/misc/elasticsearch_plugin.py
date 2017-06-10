@@ -136,10 +136,10 @@ def parse_error(string):
         return string
 
 def install_plugin(module, plugin_bin, plugin_name, version, url, proxy_host, proxy_port, timeout):
-    cmd_args = [plugin_bin, PACKAGE_STATE_MAP["present"], plugin_name]
-
     if version:
         plugin_name = plugin_name + '/' + version
+
+    cmd_args = [plugin_bin, PACKAGE_STATE_MAP["present"], plugin_name]
 
     if proxy_host and proxy_port:
         cmd_args.append("-DproxyHost=%s -DproxyPort=%s" % (proxy_host, proxy_port))
